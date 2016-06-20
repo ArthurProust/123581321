@@ -1,0 +1,48 @@
+[{
+        "outbound": {
+            "flights": [{
+                    "departs_at": "2016-10-15T14:35",
+                    "arrives_at": "2016-10-15T18:15",
+                    "origin": {
+                        "airport": "IST",
+                        "terminal": "I"
+                    },
+                    "destination": {
+                        "airport": "BOS",
+                        "terminal": "E"
+                    },
+                    "marketing_airline": "TK",
+                    "operating_airline": "TK",
+                    "flight_number": "81",
+                    "aircraft": "333",
+                    "booking_info": {
+                        "travel_class": "ECONOMY",
+                        "booking_code": "U",
+                        "seats_remaining": 9
+                    }
+                }]
+        },
+        "inbound": {
+            "flights": [{
+                    "departs_at": "2016-10-21T23:30",
+                    "arrives_at": "2016-10-22T16:10",
+                    "origin": {
+                        "airport": "BOS",
+                        "terminal": "E"
+                    },
+                    "destination": {
+                        "airport": "IST",
+                        "terminal": "I"
+                    },
+                    "marketing_airline": "TK",
+                    "operating_airline": "TK",
+                    "flight_number": "82",
+                    "aircraft": "333",
+                    "booking_info": {
+                        "travel_class": "ECONOMY",
+                        "booking_code": "U",
+                        "seats_remaining": 9
+                    }
+                }]
+        }
+    }]

@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+        <script src="../bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    </head>
+    <body ng-app="myApp.view2" ng-controller="View2Ctrl">
+        <form>
+            <label class="control-label">You depart from:</label>
+            <div>
+                <SELECT ng-model="flightOrigin"  class="form-control" size="number" ng-required="true">
+                    <OPTION ng-repeat="airport in airportsDeparture" value="{{airport.iata}}">{{airport.name}}</option>
+                </SELECT>
+                
+            </div>
+            
+            <label class="control-label ">You go to:</label>
+            <div >
+                <SELECT ng-model="destination"  class="form-control" size="number" ng-required="true">
+                    <OPTION ng-repeat=" airport in airportsDestination" value="{{airport.iata}}">{{airport.name}}</option>
+                </SELECT>
+            </div>
+            <label >Availability dates:</label>
+            <label >From:</label>
+            <div date-picker>
+            <input type="date" ng-model="departureDate"  close-text="Close" />
+            </div>
+            <label class="control-label ">To:</label>
+            <div date-picker>
+            <input type="date" ng-model="WaybackDate"  close-text="Close" />
+            </div>
+            
+    
+            <button class="btn btn-primary" ng-click="getFlights()">get flights</button>
+        </form>
+
+        
+         <table class="table" >
+                        <thead>
+                            
+
+                            <tr>
+                                <th>outbound</th>
+                                <th>inbound</th>
+
+                            </tr>
+                        </thead>
+
+
+<!--what is outbound and inbound
+next step define the form and see how to enter the forms data in the http request-->
+                        <tbody>
+                            <tr ng-repeat="result in results" >
+                                <td >
+                                    {{result.itineraries[0].outbound}}
+                                </td>
+                                <td >
+                                    {{result.itineraries[0].inbound}}
+                                </td>                                
+                                
+                               
+                             </tr>
+                             <br>
+                        </tbody>
+         </table>
+        
+        
+
+    </body>
+    
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="view1/Chart.js"></script>
+  
+</head>
+<body ng-controller="View2Ctrl">
+  <ul class="menu">
+    <li><a href="view1/view1.html">view1</a></li>
+  </ul>
+
+
+<form>
+            <label class="control-label">You depart from:</label>
+            <div>
+                <SELECT ng-model="flightOrigin"  class="form-control" size="number" ng-required="true">
+                    <OPTION ng-repeat="airport in airportsDeparture" value="{{airport.iata}}">{{airport.name}}</option>
+                </SELECT>
+                
+            </div>
+            
+            <label class="control-label ">You go to:</label>
+            <div >
+                <SELECT ng-model="destination"  class="form-control" size="number" ng-required="true">
+                    <OPTION ng-repeat=" airport in airportsDestination" value="{{airport.iata}}">{{airport.name}}</option>
+                </SELECT>
+            </div>
+            <label >Availability dates:</label>
+            <label >From:</label>
+            <div date-picker>
+            <input type="date" ng-model="startDate"  close-text="Close" />
+            </div>
+            <label class="control-label ">To:</label>
+            <div date-picker>
+            <input type="date" ng-model="endDate"  close-text="Close" />
+            </div>
+            
+    
+            <button class="btn btn-primary" ng-click="getFlights()">get flights</button>
+        </form>
+
+    
+    
+         <table class="table" >
+                        <thead>
+                            
+
+                            <tr>
+                                <th>outbound</th>
+                                <th>inbound</th>
+
+                            </tr>
+                        </thead>
+
+
+<!--what is outbound and inbound
+next step define the form and see how to enter the forms data in the http request-->
+                        <tbody>
+                            <tr ng-repeat="result in results" >
+                                <td >
+                                    {{result.itineraries[0].outbound}}
+                                </td>
+                                <td >
+                                    {{result.itineraries[0].inbound}}
+                                </td>                                
+                                
+                               
+                             </tr>
+                             <br>
+                        </tbody>
+         </table>
+
+
+  <div ng-view></div>
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
